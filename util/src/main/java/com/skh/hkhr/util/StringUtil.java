@@ -12,11 +12,11 @@ import timber.log.Timber;
  * @DEV #SamiranKumar11
  * @Created by Samiran on 15/07/2019.
  */
-public interface StringUtil {
+public class StringUtil {
 
 
     //==============================================================================================
-    static String getCapitalizeSentences(String beforeSentences) {
+    public static String getCapitalizeSentences(String beforeSentences) {
         String text = beforeSentences == null ? "" : beforeSentences;
         int pos = 0;
         boolean capitalize = true;
@@ -36,13 +36,13 @@ public interface StringUtil {
     }
 
     //==============================================================================================
-    static String getFirstWord(String beforeSentences) {
+    public static String getFirstWord(String beforeSentences) {
         String text = beforeSentences == null ? "" : beforeSentences;
         return text.split(" ")[0];
     }
 
     //==============================================================================================
-    static String getCamelCase(String beforeText) {
+    public static String getCamelCase(String beforeText) {
         String text = beforeText == null ? "" : beforeText;
 
         if (text.isEmpty()) {
@@ -71,19 +71,19 @@ public interface StringUtil {
     }
 
     //==============================================================================================
-    static String removeLastChar(String str) {
+    public static String removeLastChar(String str) {
         return str.substring(0, str.length() - 1);
     }
 
     //==============================================================================================
-    static List<String> getListFromString(String data, String split) {
+    public static List<String> getListFromString(String data, String split) {
         data = data + "".trim();
         // data = data.replace("\\\"", "\"");
         return Arrays.asList(data.split(split));
     }
 
     //==============================================================================================
-    static boolean isValidURL(String urlStr) {
+    public static boolean isValidURL(String urlStr) {
         try {
             URL url = new URL(urlStr);
             return true;
@@ -94,7 +94,7 @@ public interface StringUtil {
     }
 
     //==============================================================================================
-    static String replaceChar(String str) {
+    public static String replaceChar(String str) {
         String newString = str.replaceAll(" ", "");
         //Timber.e("Old String;; "+str);
         //Timber.e("Replace String:: "+newString);
@@ -102,25 +102,25 @@ public interface StringUtil {
     }
 
     //==============================================================================================
-    static String replaceAllChar(String str, String replace) {
+    public static String replaceAllChar(String str, String replace) {
         return str.replaceAll(" ", replace);
     }
 
 
     //==============================================================================================
-    static String getNotNullString(String data) {
+    public static String getNotNullString(String data) {
         return data == null ? "" : data;
     }
 
 
     //==============================================================================================
-    static String replaceChar(String str, String c) {
+    public static String replaceChar(String str, String c) {
         String newString = str.replaceAll(c, "");
         return newString;
     }
 
     //==============================================================================================
-    static String capitalizeFirstWord(String type) {
+    public static String capitalizeFirstWord(String type) {
         if (type.isEmpty() || type == null) {
             return type;
         }

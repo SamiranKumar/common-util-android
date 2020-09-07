@@ -14,18 +14,18 @@ import timber.log.Timber;
  * @DEV #SamiranKumar11
  * @Created by Samiran on 15/07/2019.
  */
-public interface ViewTextUtil {
+public class ViewTextUtil {
 
-    static String getTextFromView(TextView textView) {
+    public static String getTextFromView(TextView textView) {
         return textView.getText().toString().trim();
     }
 
-    static String getTextFromView(EditText editText) {
+    public static String getTextFromView(EditText editText) {
         return editText.getText().toString().trim();
     }
 
 
-    static void setVisibility(View view, int visibility) {
+    public static void setVisibility(View view, int visibility) {
         if (view == null) {
             Timber.e("view==null");
             return;

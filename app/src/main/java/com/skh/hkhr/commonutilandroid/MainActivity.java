@@ -12,6 +12,7 @@ import com.skh.hkhr.util.PrintLog;
 import com.skh.hkhr.util.StringUtil;
 import com.skh.hkhr.util.view.ImageLoader;
 import com.skh.hkhr.util.view.OnSingleClickListener;
+import com.skh.hkhr.util.view.ViewTextUtil;
 
 
 public class MainActivity extends AppCompatActivity {
