@@ -23,6 +23,10 @@ public class ToastUtil {
 
 
     public static void showToastMessage(String message) {
+        if (context == null) {
+            PrintLog.printError("Provide Context! Call ToastUtil.int(context);");
+            return;
+        }
         showToastMessage(context, message, true);
     }
 

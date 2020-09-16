@@ -2,6 +2,7 @@ package com.skh.hkhr.util.view;
 
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -25,6 +26,7 @@ public class ViewTextUtil {
     }
 
 
+    @Deprecated
     public static void setVisibility(View view, int visibility) {
         if (view == null) {
             Timber.e("view==null");
@@ -37,4 +39,37 @@ public class ViewTextUtil {
         });
 
     }
+
+    public static void setVisibility(View view, boolean visibility) {
+        if (view == null) {
+            Timber.e("view==null");
+            return;
+        }
+        AppHandler.getHandler().post(() -> {
+            if (visibility) {
+                view.setVisibility(View.VISIBLE);
+            } else {
+                view.setVisibility(View.GONE);
+            }
+        });
+
+    }
+
+
+    public static void setVisibility(ImageView imageView, boolean isVisible) {
+        if (imageView == null) {
+            Timber.e("view==null");
+            return;
+        }
+
+        AppHandler.getHandler().post(() -> {
+            if (isVisible) {
+                imageView.animate().alpha(1.0f);
+            } else {
+                imageView.animate().alpha(0.0f);
+            }
+
+        });
+    }
+
 }

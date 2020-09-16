@@ -11,6 +11,9 @@ public class AppHandler {
     private static WeakHandler handler = new WeakHandler();
 
     public static WeakHandler getHandler() {
+        if (handler == null) {
+            handler = new WeakHandler();
+        }
         return handler;
     }
 
