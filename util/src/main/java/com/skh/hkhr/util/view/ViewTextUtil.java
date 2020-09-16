@@ -5,7 +5,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
-import com.skh.hkhr.util.AppController;
+import com.skh.hkhr.util.AppHandler;
 
 import timber.log.Timber;
 
@@ -30,7 +30,7 @@ public class ViewTextUtil {
             Timber.e("view==null");
             return;
         }
-        AppController.getHandler().post(() -> {
+        AppHandler.getHandler().post(() -> {
             if (view.getVisibility() != visibility) {
                 view.setVisibility(visibility);
             }
