@@ -127,4 +127,8 @@ public class StringUtil {
 
         return type.substring(0, 1).toUpperCase() + type.substring(1);
     }
+
+    public static String removeExtraSpace(String text) {
+        return text.trim().replaceAll("\\s+", " ");
+    }
 }
