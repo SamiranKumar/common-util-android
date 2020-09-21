@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
-import static com.skh.hkhr.util.AppHandler.getHandler;
+import static com.skh.hkhr.util.thread.AppHandler.getHandler;
 
 
 /***

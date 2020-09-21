@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import com.skh.hkhr.util.AppHandler;
+import com.skh.hkhr.util.thread.AppHandler;
 
 import timber.log.Timber;
 

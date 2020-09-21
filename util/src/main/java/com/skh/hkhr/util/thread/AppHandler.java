@@ -1,4 +1,4 @@
-package com.skh.hkhr.util;
+package com.skh.hkhr.util.thread;
 
 import com.badoo.mobile.util.WeakHandler;
 

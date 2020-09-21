@@ -1,19 +1,26 @@
-package com.skh.hkhr.util;
+package com.skh.hkhr.util.thread;
 
-import android.os.Handler;
+import com.badoo.mobile.util.WeakHandler;
 
 import timber.log.Timber;
 
+/***
+ * @DEV #SamiranKumar11
+ * @Created by Samiran on 15/07/2019.
+ */
 public class ThreadUtil {
-
-    private static Handler handler;
+    private static WeakHandler handler;
     private static Runnable runnable;
 
-    public static void startTask(IThreadTask iThreadTask, long delayTime) {
+    public static void startTask(IThreadTask iThreadTask, long delayTime, boolean isRepeat) {
         stopTask();
-        handler = new Handler();
+        handler = new WeakHandler();
         runnable = () -> {
             iThreadTask.doTask();
+
+            if (isRepeat) {
+                handler.postDelayed(runnable, delayTime);
+            }
         };
 
         if (handler == null || runnable == null) {
@@ -25,14 +32,16 @@ public class ThreadUtil {
     }
 
     public static void stopTask() {
+        if (handler == null) return;
         try {
             handler.removeCallbacks(runnable);
             handler.removeCallbacksAndMessages(null);
             handler = null;
             runnable = null;
 
-        }catch (Exception e){
-            Timber.e("Error:"+e.toString());
+        } catch (Exception e) {
+            Timber.e("Error:" + e.toString());
+            Timber.e("Error:" + e.toString());
         }
 
     }
