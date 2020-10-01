@@ -15,7 +15,7 @@ public abstract class OnSingleClickListener implements View.OnClickListener {
 
 
     @Override
-    public final void onClick(View v) {
+    public final void onClick(View view) {
 
         long currentClickTime = SystemClock.uptimeMillis();
         long elapsedTime = currentClickTime - mLastClickTime;
@@ -24,9 +24,9 @@ public abstract class OnSingleClickListener implements View.OnClickListener {
         if (elapsedTime <= MIN_CLICK_INTERVAL)
             return;
 
-        onSingleClick(v);
+        onSingleClick(view);
     }
 
-    public abstract void onSingleClick(View v);
+    public abstract void onSingleClick(View view);
 
 }

@@ -14,5 +14,14 @@ public class IntentUtil {
         return StringUtil.getNotNullString(intentValue);
     }
 
+    public static int getIntentIntValue(String intentKeyName, Intent intent) {
+        int intentValue = intent == null ? 0 : intent.getIntExtra(intentKeyName, 0);
+        return intentValue;
+    }
+
+    public static boolean getIntentBooleanValue(String intentKeyName, Intent intent) {
+        boolean intentValue = intent == null ? false : intent.getBooleanExtra(intentKeyName, false);
+        return intentValue;
+    }
 
 }
