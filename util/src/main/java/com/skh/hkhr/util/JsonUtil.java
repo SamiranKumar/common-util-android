@@ -22,7 +22,6 @@ public class JsonUtil {
     public static String getJsonStringFromObject(Object type) {
         Gson gson = new Gson();
         return gson.toJson(type);
-
     }
 
 

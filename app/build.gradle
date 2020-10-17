@@ -30,10 +30,10 @@ android {
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
 
     //=============================================================================
-    implementation 'com.github.SamiranKumar:common-util-android:1.3'
+    implementation 'com.github.SamiranKumar:common-util-android:1.5'
     // implementation project(path: ':util')
    // https://jitpack.io/#SamiranKumar/common-util-android/1.2
     //=============================================================================

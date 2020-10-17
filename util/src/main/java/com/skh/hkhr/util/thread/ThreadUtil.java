@@ -41,7 +41,6 @@ public class ThreadUtil {
 
         } catch (Exception e) {
             Timber.e("Error:" + e.toString());
-            Timber.e("Error:" + e.toString());
         }
 
     }

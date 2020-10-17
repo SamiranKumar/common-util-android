@@ -4,6 +4,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import timber.log.Timber;
 
@@ -120,6 +122,21 @@ public class StringUtil {
     }
 
     //==============================================================================================
+    public static boolean emailValidator(String email) {
+        Pattern pattern;
+        Matcher matcher;
+        final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    //==============================================================================================
+    public static String replaceAllChar(String mainText, String replaceBy, String replaceAfter) {
+        return mainText.replaceAll(replaceBy, replaceAfter);
+    }
+
+    //==============================================================================================
     public static String capitalizeFirstWord(String type) {
         if (type.isEmpty() || type == null) {
             return type;
@@ -128,6 +145,7 @@ public class StringUtil {
         return type.substring(0, 1).toUpperCase() + type.substring(1);
     }
 
+    //==============================================================================================
     public static String removeExtraSpace(String text) {
         return text.trim().replaceAll("\\s+", " ");
     }
