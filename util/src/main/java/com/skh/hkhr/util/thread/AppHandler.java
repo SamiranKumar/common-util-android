@@ -8,21 +8,21 @@ import com.badoo.mobile.util.WeakHandler;
  * @Created by Samiran on 1/02/2017.
  */
 public class AppHandler {
-    private static WeakHandler handler = new WeakHandler();
+    private static UiHandler uiHandler = new UiHandler();
 
-    public static WeakHandler getHandler() {
-        if (handler == null) {
-            handler = new WeakHandler();
+    public static WeakHandler getUiHandler() {
+        if (uiHandler == null) {
+            uiHandler = new UiHandler();
         }
-        return handler;
+        return uiHandler;
     }
 
     public static void destroyHandler() {
-        handler.removeCallbacksAndMessages(null);
+        uiHandler.removeCallbacksAndMessages(null);
     }
 
-    public static WeakHandler getHandlerNew() {
-        return new WeakHandler();
+    public static UiHandler getHandlerNew() {
+        return new UiHandler();
     }
 
 }

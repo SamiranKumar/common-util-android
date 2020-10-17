@@ -45,7 +45,7 @@ public class ToastUtil {
         }
 
         int finalShowTime = showTime;
-        AppHandler.getHandler().post(() -> Toast.makeText(context, message, finalShowTime).show());
+        AppHandler.getUiHandler().post(() -> Toast.makeText(context, message, finalShowTime).show());
     }
 
 

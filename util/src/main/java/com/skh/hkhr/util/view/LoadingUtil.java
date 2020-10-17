@@ -24,7 +24,7 @@ public class LoadingUtil {
         show(context);
 
         if (hideAuto) {
-            AppHandler.getHandler().postDelayed(() -> hide(), mileSec);
+            AppHandler.getUiHandler().postDelayed(() -> hide(), mileSec);
         }
     }
 

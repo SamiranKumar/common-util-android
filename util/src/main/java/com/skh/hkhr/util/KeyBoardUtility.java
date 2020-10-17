@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
-import static com.skh.hkhr.util.thread.AppHandler.getHandler;
+import static com.skh.hkhr.util.thread.AppHandler.getUiHandler;
 
 
 /***
@@ -19,7 +19,7 @@ public class KeyBoardUtility {
      * hide the soft keyboard for activity edittext of input field
      */
     public static void hideSoftKeyboard(Activity activity) {
-        getHandler().post(() -> {
+        getUiHandler().post(() -> {
 
             if (activity.getCurrentFocus() != null) {
                 InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(INPUT_METHOD_SERVICE);
@@ -34,7 +34,7 @@ public class KeyBoardUtility {
      * @param view     when hide from dialog,alartDialog,fragments (edittext,Autocomplete)
      */
     public static void hideSoftKeyboard(Activity activity, View view) {
-        getHandler().post(() -> {
+        getUiHandler().post(() -> {
             if (view != null && activity != null) {
                 InputMethodManager im = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
                 im.hideSoftInputFromWindow(view.getWindowToken(), 0);
@@ -48,7 +48,7 @@ public class KeyBoardUtility {
      * Shows the soft keyboard
      */
     public static void showSoftKeyboard(Activity activity, View view) {
-        getHandler().post(() -> {
+        getUiHandler().post(() -> {
             if (activity.getCurrentFocus() == null) {
 
                 view.postDelayed(new Runnable() {

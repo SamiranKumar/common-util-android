@@ -30,7 +30,7 @@ public class ViewTextUtil {
             Timber.e("view==null");
             return;
         }
-        AppHandler.getHandler().post(() -> {
+        AppHandler.getUiHandler().post(() -> {
             if (view.getVisibility() != visibility) {
                 view.setVisibility(visibility);
             }
@@ -46,7 +46,7 @@ public class ViewTextUtil {
             return;
         }
 
-        AppHandler.getHandler().post(() -> {
+        AppHandler.getUiHandler().post(() -> {
             if (isVisible) {
                 ViewTextUtil.setVisibility(view, View.VISIBLE);
                 view.animate().alpha(1.0f);
