@@ -24,7 +24,7 @@ public class ViewTextUtil {
     }
 
 
-    @Deprecated
+    //@Deprecated
     public static void setVisibility(View view, int visibility) {
         if (view == null) {
             Timber.e("view==null");
@@ -40,7 +40,7 @@ public class ViewTextUtil {
 
 
     //==========================================================================
-    static void setVisibility(View view, boolean isVisible) {
+    public static void setVisibility(View view, boolean isVisible) {
         if (view == null) {
             Timber.e("view==null");
             return;

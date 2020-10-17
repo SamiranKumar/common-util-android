@@ -21,4 +21,8 @@ public class AppHandler {
         handler.removeCallbacksAndMessages(null);
     }
 
+    public static WeakHandler getHandlerNew() {
+        return new WeakHandler();
+    }
+
 }
