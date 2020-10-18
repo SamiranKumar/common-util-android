@@ -1,4 +1,4 @@
-package com.skh.hkhr.util;
+package com.skh.hkhr.util.log;
 
 import android.content.Context;
 import android.widget.Toast;

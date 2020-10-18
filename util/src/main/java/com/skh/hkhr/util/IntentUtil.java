@@ -24,4 +24,9 @@ public class IntentUtil {
         return intentValue;
     }
 
+    public static void addClearActivity(Intent intent) {
+        if (intent != null)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    }
+
 }

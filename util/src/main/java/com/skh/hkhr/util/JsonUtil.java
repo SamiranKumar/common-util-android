@@ -2,6 +2,7 @@ package com.skh.hkhr.util;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.skh.hkhr.util.log.LogUtil;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

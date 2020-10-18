@@ -1,7 +1,6 @@
-package com.skh.hkhr.util;
+package com.skh.hkhr.util.log;
 
 import androidx.annotation.Nullable;
-
 
 import com.badoo.mobile.util.BuildConfig;
 

@@ -1,8 +1,6 @@
-package com.skh.hkhr.util;
+package com.skh.hkhr.util.log;
 
 import android.util.Log;
-
-import timber.log.Timber;
 
 public class PrintLog {
     static {
