@@ -7,12 +7,16 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import com.skh.hkhr.util.LogUtil;
 import com.skh.hkhr.util.PrintLog;
 import com.skh.hkhr.util.StringUtil;
+
+
 import com.skh.hkhr.util.view.ImageLoader;
 import com.skh.hkhr.util.view.OnSingleClickListener;
-import com.skh.hkhr.util.view.ViewTextUtil;
+
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSingleClick(View v) {
                 PrintLog.print("Click");
+               // Logg
             }
         });
     }
