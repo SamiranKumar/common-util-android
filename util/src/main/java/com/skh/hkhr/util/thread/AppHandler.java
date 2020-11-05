@@ -1,6 +1,6 @@
 package com.skh.hkhr.util.thread;
 
-import com.badoo.mobile.util.WeakHandler;
+import android.os.Looper;
 
 
 /***
@@ -8,11 +8,11 @@ import com.badoo.mobile.util.WeakHandler;
  * @Created by Samiran on 1/02/2017.
  */
 public class AppHandler {
-    private static UiHandler uiHandler = new UiHandler();
+    private static UiHandler uiHandler;
 
-    public static WeakHandler getUiHandler() {
+    public static UiHandler getUiHandler() {
         if (uiHandler == null) {
-            uiHandler = new UiHandler();
+            uiHandler = new UiHandler(Looper.myLooper());
         }
         return uiHandler;
     }
@@ -22,7 +22,7 @@ public class AppHandler {
     }
 
     public static UiHandler getHandlerNew() {
-        return new UiHandler();
+        return new UiHandler(Looper.getMainLooper());
     }
 
 }

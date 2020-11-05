@@ -24,6 +24,29 @@ public class ViewTextUtil {
     }
 
 
+    public static void setText(EditText editText, String text) {
+        if (editText == null) {
+            Timber.e("view==null");
+            return;
+
+        }
+
+        editText.setText(text);
+        placeCursorAtLast(editText);
+    }
+
+    public static void placeCursorAtLast(EditText editText) {
+        if (editText == null) {
+            Timber.e("view==null");
+            return;
+
+        }
+        String string = getTextFromView(editText);
+        editText.setSelection(string.length());
+    }
+
+
+    //==============================================================================================
     //@Deprecated
     public static void setVisibility(View view, int visibility) {
         if (view == null) {

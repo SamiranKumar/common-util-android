@@ -96,17 +96,17 @@ public class StringUtil {
     }
 
     //==============================================================================================
-    public static String replaceChar(String str) {
+ /*   public static String replaceChar(String str) {
         String newString = str.replaceAll(" ", "");
         //Timber.e("Old String;; "+str);
         //Timber.e("Replace String:: "+newString);
         return newString;
-    }
+    }*/
 
     //==============================================================================================
-    public static String replaceAllChar(String str, String replace) {
+ /*   public static String replaceAllChar(String str, String replace) {
         return str.replaceAll(" ", replace);
-    }
+    }*/
 
 
     //==============================================================================================
@@ -116,10 +116,10 @@ public class StringUtil {
 
 
     //==============================================================================================
-    public static String replaceChar(String str, String c) {
+  /*  public static String replaceChar(String str, String c) {
         String newString = str.replaceAll(c, "");
         return newString;
-    }
+    }*/
 
     //==============================================================================================
     public static boolean emailValidator(String email) {
