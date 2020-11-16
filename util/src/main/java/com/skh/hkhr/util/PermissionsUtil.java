@@ -25,7 +25,7 @@ public interface PermissionsUtil {
             return;
         }
 
-        Dexter.withActivity(activity)
+        Dexter.withContext(activity)
                 .withPermissions(PermissionsList)
                 .withListener(new MultiplePermissionsListener() {
                     @Override

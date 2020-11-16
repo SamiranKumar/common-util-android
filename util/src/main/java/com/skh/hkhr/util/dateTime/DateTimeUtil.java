@@ -11,8 +11,9 @@ import timber.log.Timber;
 public class DateTimeUtil {
 
     static SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy, HH:mm:ss a"); ////10/23/2019, 11:21:56 AM
-    static SimpleDateFormat referenceCodeFormat = new SimpleDateFormat("yyyyMMddHHmmssS"); // 201908270426222
     static SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy, HH:mm a"); // 27 Jun 2020, 08:22 PM
+
+    static SimpleDateFormat referenceCodeFormat = new SimpleDateFormat("yyyyMMddHHmmssS"); // 201908270426222
 
 
     public static String getTime1(String time) {
@@ -49,6 +50,35 @@ public class DateTimeUtil {
         referenceCode = referenceCodeFormat.format(date);
 
         return referenceCode;
+    }
+
+
+
+
+    //==============================================================================================
+    static String differentTime(long startMilliseconds, long endMilliseconds) {
+
+        long milliseconds = endMilliseconds - startMilliseconds;
+
+        int seconds = (int) (milliseconds / 1000) % 60;
+        int minutes = (int) ((milliseconds / (1000 * 60)) % 60);
+        int hours = (int) ((milliseconds / (1000 * 60 * 60)) % 24);
+
+        String hoursText = getFormatNumber(hours, true);
+        String minutesText = getFormatNumber(minutes, false);
+        String secondsText = getFormatNumber(seconds, false);
+
+        hoursText = hoursText.isEmpty() ? "" : hoursText + ":";
+
+        return hoursText + minutesText + ":" + secondsText;
+    }
+
+
+    static String getFormatNumber(int number, boolean zeroCheck) {
+        if (number == 0 && zeroCheck) {
+            return "";
+        }
+        return number > 9 ? "" + number : "0" + number;
     }
 
 }

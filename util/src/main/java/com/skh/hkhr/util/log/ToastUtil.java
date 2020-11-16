@@ -1,8 +1,10 @@
 package com.skh.hkhr.util.log;
 
 import android.content.Context;
+import android.os.Handler;
 import android.widget.Toast;
 
+import com.skh.hkhr.util.ContextUtil;
 import com.skh.hkhr.util.thread.AppHandler;
 
 
@@ -25,8 +27,7 @@ public class ToastUtil {
 
 
     public static void showToastMessage(String message) {
-        if (context == null) {
-            PrintLog.printError("Provide Context! Call ToastUtil.int(context);");
+        if (ContextUtil.isContextNull(context, "Provide Context! Call ToastUtil.init(context);")) {
             return;
         }
         showToastMessage(context, message, true);
@@ -45,9 +46,16 @@ public class ToastUtil {
         }
 
         int finalShowTime = showTime;
-        AppHandler.getUiHandler().post(() -> Toast.makeText(context, message, finalShowTime).show());
+        Handler handler = AppHandler.getUiHandlerNew();
+        handler.post(() -> {
+                    Toast.makeText(context, message, finalShowTime).show();
+                    AppHandler.destroyHandler(handler);
+                }
+        );
     }
 
+
+    //==============================================================================================
 
 }
 

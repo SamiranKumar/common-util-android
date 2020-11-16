@@ -1,6 +1,7 @@
 package com.skh.hkhr.util.thread;
 
-import com.badoo.mobile.util.WeakHandler;
+import android.os.Handler;
+
 
 import timber.log.Timber;
 
@@ -9,12 +10,23 @@ import timber.log.Timber;
  * @Created by Samiran on 15/07/2019.
  */
 public class ThreadUtil {
-    private static WeakHandler handler;
+    private static Handler handler;
     private static Runnable runnable;
 
     public static void startTask(IThreadTask iThreadTask, long delayTime, boolean isRepeat) {
+        handler = AppHandler.getBackgroundHandler();
+        startTask(iThreadTask, delayTime, isRepeat, handler);
+    }
+
+    public static void startUiTask(IThreadTask iThreadTask, long delayTime, boolean isRepeat) {
+        handler = AppHandler.getUiHandlerNew();
+        startTask(iThreadTask, delayTime, isRepeat, handler);
+    }
+
+
+    private static void startTask(IThreadTask iThreadTask, long delayTime, boolean isRepeat, final Handler handler) {
         stopTask();
-        handler = new WeakHandler();
+
         runnable = () -> {
             iThreadTask.doTask();
 
@@ -28,15 +40,14 @@ public class ThreadUtil {
         }
 
         handler.postDelayed(runnable, delayTime);
-
     }
+
 
     public static void stopTask() {
         if (handler == null) return;
         try {
             handler.removeCallbacks(runnable);
-            handler.removeCallbacksAndMessages(null);
-            handler = null;
+            AppHandler.destroyHandler(handler);
             runnable = null;
 
         } catch (Exception e) {

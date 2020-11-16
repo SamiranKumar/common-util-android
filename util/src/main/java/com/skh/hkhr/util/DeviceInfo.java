@@ -4,6 +4,11 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.provider.Settings;
 
+
+/***
+ * @DEV #SamiranKumar11
+ * @Created by Samiran on 1/02/2017.
+ */
 public class DeviceInfo {
 
     @SuppressLint("HardwareIds")

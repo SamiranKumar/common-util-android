@@ -1,10 +1,12 @@
 package com.skh.hkhr.util.view;
 
+import android.os.Handler;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.skh.hkhr.util.thread.AppHandler;
+
 
 import timber.log.Timber;
 
@@ -30,9 +32,13 @@ public class ViewTextUtil {
             return;
 
         }
+        Handler handler = AppHandler.getUiHandlerNew();
+        handler.post(() -> {
+            editText.setText(text);
+            placeCursorAtLast(editText);
 
-        editText.setText(text);
-        placeCursorAtLast(editText);
+            AppHandler.destroyHandler(handler);
+        });
     }
 
     public static void placeCursorAtLast(EditText editText) {
@@ -41,8 +47,12 @@ public class ViewTextUtil {
             return;
 
         }
-        String string = getTextFromView(editText);
-        editText.setSelection(string.length());
+        Handler handler = AppHandler.getUiHandlerNew();
+        handler.post(() -> {
+            String string = getTextFromView(editText);
+            editText.setSelection(string.length());
+            AppHandler.destroyHandler(handler);
+        });
     }
 
 
@@ -53,10 +63,12 @@ public class ViewTextUtil {
             Timber.e("view==null");
             return;
         }
-        AppHandler.getUiHandler().post(() -> {
+        Handler handler = AppHandler.getUiHandlerNew();
+        handler.post(() -> {
             if (view.getVisibility() != visibility) {
                 view.setVisibility(visibility);
             }
+            AppHandler.destroyHandler(handler);
         });
 
     }
@@ -69,7 +81,8 @@ public class ViewTextUtil {
             return;
         }
 
-        AppHandler.getUiHandler().post(() -> {
+        Handler handler = AppHandler.getUiHandlerNew();
+        handler.post(() -> {
             if (isVisible) {
                 ViewTextUtil.setVisibility(view, View.VISIBLE);
                 view.animate().alpha(1.0f);
@@ -78,6 +91,7 @@ public class ViewTextUtil {
                 ViewTextUtil.setVisibility(view, View.GONE);
             }
 
+            AppHandler.destroyHandler(handler);
         });
     }
 

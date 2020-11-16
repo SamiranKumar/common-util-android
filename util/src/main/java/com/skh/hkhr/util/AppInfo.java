@@ -11,6 +11,11 @@ import java.security.NoSuchAlgorithmException;
 
 import timber.log.Timber;
 
+
+/***
+ * @DEV #SamiranKumar11
+ * @Created by Samiran on 1/02/2017.
+ */
 public class AppInfo {
 
     public static final String getVersionName(Context context) {
@@ -24,6 +29,7 @@ public class AppInfo {
     }
 
 
+    //==============================================================================================
     public static void generateHashKey(Context context) {
         try {
             PackageInfo info = context.getPackageManager().getPackageInfo(context.getPackageName(), PackageManager.GET_SIGNATURES);
