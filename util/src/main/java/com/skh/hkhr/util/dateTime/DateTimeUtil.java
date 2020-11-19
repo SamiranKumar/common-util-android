@@ -10,6 +10,14 @@ import timber.log.Timber;
 
 public class DateTimeUtil {
 
+
+    public static String TIME_FORMAT_1 = "yyyy-MM-dd HH:mm:ss";
+    public static String TIME_FORMAT_2 = "yyyy-MM-dd hh:mm:ss";
+    public static String TIME_FORMAT_3 = "yyyy/MM/dd";
+    public static String TIME_FORMAT_4 = "yyyy.MM.dd";
+    public static String TIME_FORMAT_5 = "MM.dd";
+    public static String TIME_FORMAT_7 = "hh:mm";
+
     static SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy, HH:mm:ss a"); ////10/23/2019, 11:21:56 AM
     static SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy, HH:mm a"); // 27 Jun 2020, 08:22 PM
 
