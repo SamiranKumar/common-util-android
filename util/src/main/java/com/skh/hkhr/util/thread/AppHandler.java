@@ -42,6 +42,7 @@ public class AppHandler {
     //==============================================================================================
 
     public static void destroyHandler(Handler handler) {
+        if (handler == null) return;
         handler.removeCallbacksAndMessages(null);
         handler = null;
     }
