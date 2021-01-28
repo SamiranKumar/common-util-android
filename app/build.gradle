@@ -33,8 +33,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
 
     //=============================================================================
-    implementation 'com.github.SamiranKumar:common-util-android:1.7'
-    // implementation project(path: ':util')
+   // implementation 'com.github.SamiranKumar:common-util-android:1.7'
+    implementation project(path: ':util')
     // https://jitpack.io/#SamiranKumar/common-util-android/1.7
     //=============================================================================
 

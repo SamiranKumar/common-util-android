@@ -8,12 +8,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import com.skh.hkhr.util.LogUtil;
-import com.skh.hkhr.util.PrintLog;
 import com.skh.hkhr.util.StringUtil;
 
 
-import com.skh.hkhr.util.ToastUtil;
+import com.skh.hkhr.util.log.LogUtil;
+import com.skh.hkhr.util.log.PrintLog;
+import com.skh.hkhr.util.log.ToastUtil;
 import com.skh.hkhr.util.view.ImageLoader;
 import com.skh.hkhr.util.view.OnSingleClickListener;
 
@@ -41,7 +41,10 @@ public class MainActivity extends AppCompatActivity {
         imageView.setOnClickListener(new OnSingleClickListener() {
             @Override
             public void onSingleClick(View v) {
+                ImageLoader.init(getApplicationContext());
                 ToastUtil.showToastMessage("Click");
+                ImageLoader.showWithPlaceholder(imageView, "https://developer.android.com/guide/practices/ui_guidelines/images/Single_Icon_Parallax_Demo_01_2x_ext.gif");
+
                 // Logg
             }
         });
