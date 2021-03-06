@@ -1,5 +1,6 @@
 package com.skh.hkhr.util.view;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 
@@ -20,16 +21,16 @@ public class LoadingUtil {
     }
 
 
-    public static void show(Context context, boolean hideAuto, long mileSec) {
-        show(context);
+    public static void show(Activity activity, boolean hideAuto, long mileSec) {
+        show(activity);
 
         if (hideAuto) {
             AppHandler.getUiHandlerNew().postDelayed(() -> hide(), mileSec);
         }
     }
 
-    public static void show(Context context) {
-        pd = new ProgressDialog(context);
+    public static void show(Activity activity) {
+        pd = new ProgressDialog(activity);
         pd.setMessage("Please Wait..");
         pd.setCancelable(false);
         pd.show();
