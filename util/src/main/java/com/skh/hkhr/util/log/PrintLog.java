@@ -2,6 +2,8 @@ package com.skh.hkhr.util.log;
 
 import android.util.Log;
 
+import com.skh.hkhr.util.BuildConfig;
+
 public class PrintLog {
     static {
         LogUtil.initializeLog("skh");
@@ -9,12 +11,17 @@ public class PrintLog {
 
     public static void print(String message) {
         //  Timber.i(message);
-        Log.i("skh", message);
+        if(BuildConfig.DEBUG){
+            Log.i("skh", message);
+        }
+
     }
 
     public static void printError(String message) {
         //  Timber.e(message);
-        Log.e("skh", message);
+        if(BuildConfig.DEBUG){
+            Log.e("skh", message);
+        }
     }
 
 }

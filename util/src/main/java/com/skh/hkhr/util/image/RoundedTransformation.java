@@ -1,4 +1,4 @@
-package com.skh.hkhr.util.animation;
+package com.skh.hkhr.util.image;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
@@ -33,10 +33,10 @@ public class RoundedTransformation implements Transformation {
         paint.setShader(new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
         Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
-        int i = this.margin;
-        RectF rectF = new RectF((float) i, (float) i, (float) (bitmap.getWidth() - this.margin), (float) (bitmap.getHeight() - this.margin));
-        int i2 = this.radius;
-        canvas.drawRoundRect(rectF, (float) i2, (float) i2, paint);
+        int margin = this.margin;
+        RectF rectF = new RectF((float) margin, (float) margin, (float) (bitmap.getWidth() - this.margin), (float) (bitmap.getHeight() - this.margin));
+        int radius = this.radius;
+        canvas.drawRoundRect(rectF, (float) radius, (float) radius, paint);
         if (bitmap != createBitmap) {
             bitmap.recycle();
         }

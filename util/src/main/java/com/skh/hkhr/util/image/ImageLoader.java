@@ -1,12 +1,12 @@
-package com.skh.hkhr.util.view;
+package com.skh.hkhr.util.image;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.widget.ImageView;
 
 import com.skh.hkhr.util.StringUtil;
-import com.skh.hkhr.util.animation.RoundedTransformation;
-import com.skh.hkhr.util.log.ToastUtil;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import timber.log.Timber;
 
@@ -15,7 +15,7 @@ public class ImageLoader {
     private static boolean initializedPicasso = false;
 
     public static void init(Context context) {
-        Timber.e("initializedPicasso:" + initializedPicasso);
+        Timber.e("initializedPicasso:%s", initializedPicasso);
         if (initializedPicasso) {
             return;
         }
@@ -29,8 +29,8 @@ public class ImageLoader {
     }
 
     public static void showWithPlaceholder(ImageView imageView, String url) {
-        if (initializedPicasso == false) {
-            Timber.e("initializedPicasso:" + initializedPicasso);
+        Timber.e("initializedPicasso:%s", initializedPicasso);
+        if (!initializedPicasso) {
             return;
         }
 
@@ -46,8 +46,8 @@ public class ImageLoader {
 
 
     public static void showWithPlaceholder(ImageView imageView, String url, int radius, int margin) {
-        if (initializedPicasso == false) {
-            Timber.e("initializedPicasso:" + initializedPicasso);
+        Timber.e("initializedPicasso:%s", initializedPicasso);
+        if (!initializedPicasso) {
             return;
         }
 
@@ -61,4 +61,27 @@ public class ImageLoader {
                 .transform(new RoundedTransformation(radius, margin))
                 .into(imageView);
     }
+
+
+    //==========================================================================================================================
+    public static void showWithPlaceholder(ImageView imageView, String url, int maxWidth, int maxHeight, int radius, int margin) {
+        Timber.e("initializedPicasso:%s", initializedPicasso);
+        if (!initializedPicasso) {
+            return;
+        }
+
+        if (StringUtil.getNotNullString(url).isEmpty()) {
+            return;
+        }
+
+        int size = (int) Math.ceil(Math.sqrt(maxWidth * maxHeight));
+
+        Picasso.get()
+                .load(url)
+                .transform(new ScaleRoundedTransformation(maxWidth, maxHeight, radius, margin))
+                .resize(size, size)
+                .onlyScaleDown()
+                .into(imageView);
+    }
+
 }
