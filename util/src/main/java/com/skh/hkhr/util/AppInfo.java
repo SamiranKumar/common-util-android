@@ -49,9 +49,20 @@ public class AppInfo {
         /** Release Apk hash key
 
          Go jdk bin dir then open cmd
-         keytool -exportcert -alias cinematickey -keystore G:\keystore.jks | openssl sha1 -binary | openssl base64
-         keytool -exportcert -alias cinematickey -keystore G:\keystore.jks sha1 -binary  base64
+         keytool -exportcert -alias key -keystore G:\keystore.jks | openssl sha1 -binary | openssl base64
+         keytool -exportcert -alias key -keystore G:\keystore.jks | C:\Users\Samiran\Desktop\openssl-0.9.8d_X64\bin\openssl sha1 -binary | C:\Users\Samiran\Desktop\openssl-0.9.8d_X64\bin\openssl base64
+         keytool -exportcert -alias key -keystore G:\keystore.jks sha1 -binary  base64
+
+         keytool -exportcert -alias key0 -keystore G:\keystore.jks sha1 -binary base64
+
+         Go jdk bin dir then open cmd
+         C:\Program Files\Java\jdk-9.0.1\bin>keytool -exportcert -alias androiddebugkey -keystore "C:\Users\Samiran\.android\debug.keystore" | "C:\Users\Samiran\Desktop\openssl-0.9.8d_X64\bin\openssl" sha1 -binary | "C:\Users\Samiran\Desktop\openssl-0.9.8d_X64\bin\openssl" base64
+
+
+         //Download openssl
+         N.B: https://code.google.com/archive/p/openssl-for-windows/downloads
          **/
+
     }
 
 
