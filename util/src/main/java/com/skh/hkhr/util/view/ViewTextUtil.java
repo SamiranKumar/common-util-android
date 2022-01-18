@@ -15,6 +15,7 @@ import timber.log.Timber;
  * @DEV #SamiranKumar11
  * @Created by Samiran on 15/07/2019.
  */
+@Deprecated
 public class ViewTextUtil {
 
     public static String getTextFromView(TextView textView) {

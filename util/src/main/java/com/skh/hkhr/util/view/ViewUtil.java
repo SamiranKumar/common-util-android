@@ -1,12 +1,12 @@
 package com.skh.hkhr.util.view;
 
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.skh.hkhr.util.thread.AppHandler;
-
 
 import timber.log.Timber;
 
@@ -15,8 +15,8 @@ import timber.log.Timber;
  * @DEV #SamiranKumar11
  * @Created by Samiran on 15/07/2019.
  */
-@Deprecated
-public class ViewTextUtil {
+
+public class ViewUtil {
 
     public static String getTextFromView(TextView textView) {
         return textView.getText().toString().trim();
@@ -85,11 +85,11 @@ public class ViewTextUtil {
         Handler handler = AppHandler.getUiHandlerNew();
         handler.post(() -> {
             if (isVisible) {
-                ViewTextUtil.setVisibility(view, View.VISIBLE);
+                ViewUtil.setVisibility(view, View.VISIBLE);
                 view.animate().alpha(1.0f);
             } else {
                 view.animate().alpha(0.0f);
-                ViewTextUtil.setVisibility(view, View.GONE);
+                ViewUtil.setVisibility(view, View.GONE);
             }
 
             AppHandler.destroyHandler(handler);
@@ -97,4 +97,17 @@ public class ViewTextUtil {
     }
 
 
+    //==========================================================================
+    public static void setTextBold(TextView textView, boolean isBold) {
+        if (isBold) {
+            textView.setTypeface(textView.getTypeface(), Typeface.BOLD);
+        } else {
+            textView.setTypeface(textView.getTypeface(), Typeface.NORMAL);
+        }
+    }
+
+
+    public static void setTextViewColor(TextView textView, int color) {
+        textView.setTextColor(color);
+    }
 }

@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.widget.Toast;
 
 import com.skh.hkhr.util.ContextUtil;
+import com.skh.hkhr.util.NullRemoveUtil;
 import com.skh.hkhr.util.thread.AppHandler;
 
 
@@ -30,7 +31,7 @@ public class ToastUtil {
         if (ContextUtil.isContextNull(context, "Provide Context! Call ToastUtil.init(context);")) {
             return;
         }
-        showToastMessage(context, message, true);
+        showToastMessage(context, NullRemoveUtil.getNotNull(message), true);
     }
 
 

@@ -14,8 +14,9 @@ import com.skh.hkhr.util.StringUtil;
 
 import com.skh.hkhr.util.log.LogUtil;
 import com.skh.hkhr.util.log.PrintLog;
+import com.skh.hkhr.util.log.Timber2;
 import com.skh.hkhr.util.log.ToastUtil;
-import com.skh.hkhr.util.image.ImageLoader;
+import com.skh.hkhr.util.thread.AppHandler;
 import com.skh.hkhr.util.view.OnSingleClickListener;
 
 
@@ -33,6 +34,18 @@ public class MainActivity extends AppCompatActivity {
         LogUtil.initializeLog("HHHKKK");
         ToastUtil.init(this);
         PrintLog.print("hkhr");
+
+        imageView.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View view) {
+
+            }
+        });
+
+
+
+
+/*
         ImageLoader.init(getApplicationContext());
         String capitalizeSentences = StringUtil.getCapitalizeSentences("hkhkhrhr hkhkhrhr");
         PrintLog.print(capitalizeSentences);
@@ -68,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 // Logg
             }
         });
+*/
 
 
     }

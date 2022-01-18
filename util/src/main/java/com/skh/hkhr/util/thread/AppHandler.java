@@ -58,4 +58,20 @@ public class AppHandler {
     }
 
 
+    //==============================================================================================
+
+    public static void callUiThread(IUiThread IUiThread) {
+
+        Handler handler = AppHandler.getUiHandlerNew();
+        handler.post(() -> {
+            IUiThread.onView();
+            AppHandler.destroyHandler(handler);
+        });
+    }
+
+
+    public interface IUiThread {
+        void onView();
+    }
+
 }
